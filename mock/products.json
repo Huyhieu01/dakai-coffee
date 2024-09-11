@@ -1,0 +1,401 @@
+[
+  {
+    "id": 1,
+    "name": "Cà phê phin đen",
+    "price": 17000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/rwvoaq4g6tqfi0sufvya",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 2,
+    "name": "Cà phê phin sữa",
+    "price": 20000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/qpk09xznkggsbpei9ate",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 3,
+    "name": "Cà phê máy",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/hju6ogdkpgmj0eah1coi",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 4,
+    "name": "Bạc xỉu",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/xxtxvwkpir2q7eslrupj",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 5,
+    "name": "Cà phê muối",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/zdziuqqwv3znpvbkx4uu",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 6,
+    "name": "Milo sữa",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ivqemt7t7fljbpbmmyrm",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "typping"]
+  },
+  {
+    "id": 7,
+    "name": "Trà tắc",
+    "price": 20000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/eu0np9bwjuh7o9zyzhbe",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["tea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 8,
+    "name": "Trà chanh",
+    "price": 20000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/dqzm4aq4aee48okmc5om",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["tea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 9,
+    "name": "Bộ 3 Blue Corner Coffee siêu HOT",
+    "image": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/product-rect-1.webp",
+    "price": 25000,
+    "sale": {
+      "type": "percent",
+      "percent": 0.2
+    },
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "milktea", "drinks"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 10,
+    "name": "Combo Hi Tea Aroma",
+    "image": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/product-rect-2.webp",
+    "price": 57000,
+    "sale": {
+      "type": "fixed",
+      "amount": 7000
+    },
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "drinks"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 11,
+    "name": "Milk Tea Combo",
+    "price": 55000,
+    "image": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/product-rect-3.webp",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["milktea"],
+    "variantId": ["size", "topping"],
+    "sale": {
+      "type": "percent",
+      "percent": 0.5
+    }
+  },
+  {
+    "id": 12,
+    "name": "Trà đào",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/vrfrhlr0bpuudgd1vsfs",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["tea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 13,
+    "name": "Đá me",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/uonq7bjl8vrivr8im6yg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["tea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 14,
+    "name": "Trà lipton cam",
+    "price": 30000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/muhqwo337gmn1c9gvcno",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["tea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 15,
+    "name": "Trà gừng",
+    "price": 17000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/priex4nysh4sx2ebwg0e",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["hottea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 16,
+    "name": "Trà dưỡng sinh",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/mgrufkqtaafnutbgjpkq",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["hottea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 17,
+    "name": "Trà thanh nhiệt",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/vn7fhnsnxvycxpvenqib",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["hottea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 18,
+    "name": "Trà cam cúc 6 vị",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/szfkslgyxijr6alismct",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["hottea"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 19,
+    "name": "Yaourt dâu",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/tgqt8qzwpcpcnmivpphi",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["yaourt"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 20,
+    "name": "Yaourt chanh dây",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/jr7a6qjzzq9p8ahgrt5d",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["yaourt"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 21,
+    "name": "Yaourt đào",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/waopnvd9eky9gvogvaw1",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["yaourt"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 22,
+    "name": "Yaourt việt quất",
+    "price": 27000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/eeghlqndcbk5xxj8p6rw",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["yaourt"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 23,
+    "name": "Yaourt phúc bồn tử",
+    "price": 27000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/udcp78ccxi7tzmn8ujcs",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["yaourt"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 24,
+    "name": "Dừa tươi",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bektkzxyf9gelzv2tmru",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["juice"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 25,
+    "name": "Cam vắt",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/afeobiyytrreeuspmool",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["juice"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 26,
+    "name": "Nước ép cà rốt",
+    "price": 30000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/c5lvpmsqvvffzlvotbpc",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["juice"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 27,
+    "name": "Nước ép cam cà rốt",
+    "price": 30000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bhhqsgfblqezlkkhvww1",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["juice"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 28,
+    "name": "Nước ép dứa",
+    "price": 30000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/prghsih0saax1yxrmd1b",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["juice"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 29,
+    "name": "Soda dâu",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/pdxrlia1ffkaigjuzxlu",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["soda"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 30,
+    "name": "Soda việt quất",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/t79z6ko7iq1fbwevk53z",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["soda"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 31,
+    "name": "Soda phúc bồn tử",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/kjr3dkuagw50rgpv6kko",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["soda"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 32,
+    "name": "Soda bạc hà",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ouquuelec4hlf64goi2e",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["soda"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 33,
+    "name": "Kem dâu",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bfw4rwacgx6eos82gohl",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["cream"],
+    "variantId": ["typping-cream"]
+  },
+  {
+    "id": 34,
+    "name": "Kem sầu riêng",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/qpnwcqsxcork00zmysyx",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["cream"],
+    "variantId": ["typping-cream"]
+  },
+  {
+    "id": 35,
+    "name": "Kem socola",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/zicxgppstly34vo5wpnx",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["cream"],
+    "variantId": ["typping-cream"]
+  },
+  {
+    "id": 36,
+    "name": "Kem vani",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/z8usx4y0sknsrtllhok7",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["cream"],
+    "variantId": ["typping-cream"]
+  },
+  {
+    "id": 37,
+    "name": "Pepsi",
+    "price": 18000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/nqfnvzerb7dmspofw6bl",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 38,
+    "name": "Cocacola",
+    "price": 18000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bm1d4pzirefz27ok9fxh",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 39,
+    "name": "Sting",
+    "price": 18000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/tbpm7xcjl4jlota2ct3e",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 40,
+    "name": "7up",
+    "price": 18000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ftabsjfgsgeqb9ktegki",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 41,
+    "name": "Trà ô long",
+    "price": 18000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ac2gqpy79ufxkyz0mo75",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 42,
+    "name": "Bò húc",
+    "price": 25000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/xpvc8u64rgk3oi1nnftd",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  },
+  {
+    "id": 43,
+    "name": "Nước suối",
+    "price": 12000,
+    "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/rg6grkeoawapuuk8snlw",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["drinks"],
+    "variantId": ["typping"]
+  }
+]
