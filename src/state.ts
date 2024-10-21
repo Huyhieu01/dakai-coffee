@@ -279,3 +279,8 @@ const phoneNumberState = atom<string | null>({
   key: "phoneNumberState",
   default: null,
 });
+
+export const paymentMethodState = atom<"table" | "delivery" | "card" |null>({ // Thay đổi kiểu dữ liệu ở đây
+  key: "paymentMethodState",
+  default: null, // Giá trị mặc định nên là null vì ban đầu chưa có phương thức nào được chọn
+});

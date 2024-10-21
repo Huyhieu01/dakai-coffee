@@ -14,7 +14,7 @@ const CartPage: FC = () => {
     <Page className="flex flex-col">
       <Header title="Giỏ hàng" showBackIcon={false} />
       <CartItems />
-      <DeliveryShip />
+      {/* <DeliveryShip /> */}
       <Divider size={12} />
       <TermsAndPolicies />
       <Divider size={32} className="flex-1" />
@@ -24,4 +24,3 @@ const CartPage: FC = () => {
 };
 
 export default CartPage;
-
