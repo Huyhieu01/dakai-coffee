@@ -30,7 +30,7 @@ export const CartItems: FC = () => {
     setSelectedTable(table);
     setModalVisible(false); 
   };
-  const [selectedMethod, setSelectedMethod] = useState<"table" | "delivery" | "card" | null>(null); 
+  const [selectedMethod, setSelectedMethod] = useState<"table" | "delivery" | null>(null); 
   const setPaymentMethod = useSetRecoilState(paymentMethodState); 
 
   const renderTableButtons = () => {
@@ -236,7 +236,7 @@ export const CartItems: FC = () => {
               }}
             >
               <Suspense fallback={<RequestCardPickerPhone />}>
-                <PhoneCard disabled={selectedMethod !== "table"} />
+                <PhoneCard disabled={selectedMethod !== "table" } selectedCardMethod={selectedMethod ?? ""} />
               </Suspense>
             </div>
             ),
@@ -249,6 +249,24 @@ export const CartItems: FC = () => {
     </Box>
     <Divider />
     {showDelivery && <DeliveryShip />}
+    <Modal
+        visible={modalCard}
+        onClose={() => {
+          setModalCard(false);
+        }}
+        zIndex={1000}
+        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729737867/Th%C3%AAm_ti%C3%AAu_%C4%91%E1%BB%81_1_tppjmg.png"
+        actions={[
+          {
+            text: "Thoát",
+            close: true,
+            highLight: false,
+            danger: true
+          },
+        ]}
+        title="DAKAI Cafe thông báo!"
+      >
+      </Modal>
     <Modal
         visible={modalVisible}
         title="Sơ đồ chọn bàn"
@@ -297,7 +315,7 @@ export const CartItems: FC = () => {
             },
           },
         ]}
-        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729767722/Th%C3%AAm_ti%C3%AAu_%C4%91%E1%BB%81_4_lq17t9.png"
+        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729772832/Th%C3%AAm_ti%C3%AAu_%C4%91%E1%BB%81_4_mpayds.png"
       >
       </Modal>
       <Modal
@@ -315,7 +333,7 @@ export const CartItems: FC = () => {
       >
       </Modal>
       {selectedTable && (
-        <div>
+        <div className="mt-[-50px]">
           <p className="">Quý khách đã chọn bàn: <span style={{color:"#197df8", fontSize:"20px", fontWeight:"bold"}}>{selectedTable}</span> </p> 
         </div>
       )}

@@ -4,26 +4,22 @@ import { useLocation, useNavigate } from "react-router";
 import { MenuItem } from "types/menu";
 import { BottomNavigation, Icon } from "zmp-ui";
 import { CartIcon } from "./cart-icon";
-import { openChat } from "zmp-sdk/apis";
+import { openChat } from 'zmp-sdk/apis'; // Import openChat
 
 const tabs: Record<string, MenuItem> = {
   "/": {
     label: "Trang chủ",
     icon: <Icon icon="zi-home" />,
   },
-  "/chat": {
-    label: "Liên hệ",
-    icon: <Icon icon="zi-chat" />,
-  },
   "/cart": {
     label: "Giỏ hàng",
     icon: <CartIcon />,
     activeIcon: <CartIcon active />,
   },
-  "/profile": {
-    label: "Cá nhân",
-    icon: <Icon icon="zi-user" />,
-  },
+  "/chat": {
+    label: "Liên hệ",
+    icon: <Icon icon="zi-chat" />,
+  }
 };
 
 export type TabKeys = keyof typeof tabs;
@@ -44,6 +40,20 @@ export const Navigation: FC = () => {
     return <></>;
   }
 
+  const openChatScreen = () => {
+    openChat({
+      type: 'oa',
+      id: '4034193284491636322',
+      message: 'Xin Chào',
+      success: () => {
+        // Handle success if needed
+      },
+      fail: (err) => {
+        // Handle failure if needed
+      }
+    });
+  };
+
   return (
     <BottomNavigation
       id="footer"
@@ -57,7 +67,13 @@ export const Navigation: FC = () => {
           label={tabs[path].label}
           icon={tabs[path].icon}
           activeIcon={tabs[path].activeIcon}
-          onClick={() => navigate(path)}
+          onClick={() => {
+            if (path === "/chat") {
+              openChatScreen(); // Gọi hàm openChatScreen khi nhấn vào tab chat
+            } else {
+              navigate(path); // Điều hướng đến các trang khác
+            }
+          }}
         />
       ))}
     </BottomNavigation>

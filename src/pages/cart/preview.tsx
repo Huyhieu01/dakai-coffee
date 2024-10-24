@@ -28,7 +28,7 @@ export const CartPreview: FC = () => {
       </Box>
       <Button
         type="highlight"
-        disabled={!quantity || !validDeliveryInfo}
+        disabled={!quantity}
         fullWidth
         onClick={() => pay(totalPrice)}
       >

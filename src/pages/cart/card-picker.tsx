@@ -10,7 +10,7 @@ export const phoneNumberCard = atom<string | null>({
   default: null,
 });
 
-export const PhoneCard: FC <{ disabled?: boolean }> = ({ disabled = false }) => {
+export const PhoneCard: FC <{ disabled?: boolean; selectedCardMethod: string }> = ({ disabled = false, selectedCardMethod, }) => {
   const user = useRecoilValue(userState);
   const [phoneNumber, setPhoneNumber] = useRecoilState(phoneNumberCard);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
@@ -18,8 +18,20 @@ export const PhoneCard: FC <{ disabled?: boolean }> = ({ disabled = false }) => 
   const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState("Chưa có số");
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [cardLimit, setCardLimit] = useState<string | null>(null);
+  const [cardPhone, setCardPhone] = useState<string | null>(null);
    
-
+  useEffect(() => {
+    if (selectedCardMethod !== "table") {
+      // Khi phương thức không phải là chọn bàn, reset trạng thái
+      setPhoneNumber(null);
+      setCardLimit(null);
+      setTitle("Chưa có số");
+      setStatus("idle");
+      setErrorMessage(null);
+      setCardPhone(null);
+    }
+  }, [selectedCardMethod]); 
   const handleChoosePerson = async () => {
     if (disabled) {
       // Nếu chức năng bị vô hiệu hóa thì không làm gì cả
@@ -75,6 +87,12 @@ export const PhoneCard: FC <{ disabled?: boolean }> = ({ disabled = false }) => 
           setErrorMessage("Không tìm thấy số điện thoại");
           setStatus("error");
         }
+        if (data && data["limit-fix"]) {
+          setCardLimit(data["limit-fix"]); // Cập nhật hạn mức vào state
+        }
+        if (data && data["phone"]) {
+          setCardPhone(data["phone"]); // Cập nhật hạn mức vào state
+        }
       } else if (response instanceof Error) {
         // Xử lý lỗi timeout
         console.error("Webhook request timed out:", response);
@@ -104,24 +122,35 @@ export const PhoneCard: FC <{ disabled?: boolean }> = ({ disabled = false }) => 
             return "Không thể kiểm tra do quá thời gian chờ";
           }
           // Trường hợp bình thường
-          return user ? `${user.name} - ${phoneNumber || "Thẻ thành viên"}` : "Thẻ thành viên";
+          return user ? `${phoneNumber || "Kiểm tra thẻ thành viên"} - ${cardPhone || "Số điện thoại"}` : "Kiểm tra thẻ thành viên";
       }
-    })();
+    }
+    )();
 
     if (newTitle !== title) {
       setTitle(newTitle);
     }
-  }, [status, errorMessage, user, phoneNumber]);
+  }, [status, errorMessage, user, phoneNumber, cardPhone]);
 
-  const subtitle = status === "error" ? "Vui lòng thử lại" : "Yêu cầu truy cập số điện thoại";
+  const subtitle =
+  cardLimit && status === "idle"
+    ? "Nhấn lần nữa để kiểm tra số dư còn lại sau đặt hàng nhé! (Thực hiện sau 5 phút)"
+    : "Yêu cầu kiểm tra số điện thoại";
 
   return (
+    <div>
     <TheThanhVien
       title={title}
       subtitle={subtitle}
       isLoading={status === "loading"}
       onClick={disabled || status !== "idle" ? undefined : handleChoosePerson}
     />
+    {cardLimit && (
+      <div style={{marginTop: "10px"}}>
+        <p><span style={{marginTop: "10px", fontSize: "16px", fontWeight: "bold"}}>Hạn mức còn lại:</span> <span style={{marginTop: "10px", color: "#197df8", fontSize: "16px", fontWeight: "bold"}}>{cardLimit} đ</span></p>
+      </div>
+    )}
+    </div>
   );
 };
 
