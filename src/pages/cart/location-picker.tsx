@@ -69,8 +69,8 @@ export const StorePicker: FC = () => {
 
         const data = await response.json();
         // Điều chỉnh điều kiện kiểm tra dữ liệu
-        if (data && data.length > 0 && data[0].data && data[0].data.location) {
-          setLocation(data[0].data.location);
+        if (data && data.location) {
+          setLocation(data.location);
         } else {
           console.error(
             "Không tìm thấy thông tin vị trí trong phản hồi:",

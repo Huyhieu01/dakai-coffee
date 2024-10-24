@@ -3,12 +3,15 @@ import { DisplaySelectedOptions } from "components/display/selected-options";
 import { Divider } from "components/divider";
 import { ListRenderer } from "components/list-renderer";
 import { ProductPicker } from "components/product/picker";
-import React, { FC, useState } from "react";
+import React, { FC, Suspense, useEffect, useState } from "react";
 import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { cartState, paymentMethodState, userState } from "state";
+import { cartState, paymentMethodState, userState, requestLocationTriesState } from "state";
 import { CartItem } from "types/cart";
 import { Box, Icon, Modal, Text } from "zmp-ui";
 import { DeliveryShip } from "./delivery-ship";
+import { PhoneCard, RequestCardPickerPhone } from "./card-picker";
+import { phoneNumberCard } from "./card-picker";
+import { getAccessToken, getLocation } from "zmp-sdk/apis";
 
 export const CartItems: FC = () => {
   const cart = useRecoilValue(cartState);
@@ -16,14 +19,19 @@ export const CartItems: FC = () => {
   const [showDelivery, setShowDelivery] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedTable, setSelectedTable] = useState(null);
-  const [selectedCard, setSelectCard] = useState(null);
+  const [modalCard, setModalCard] = useState(false);
+  const resetPhoneNumberCard = useSetRecoilState(phoneNumberCard);
+  const [paymentChangeModalVisible, setPaymentChangeModalVisible] = useState(false);
+  const [newPaymentMethod, setNewPaymentMethod] = useState<"table" | "delivery" | null>(null); 
+  const [modalFailed, setModalFailed] = useState(false); // Modal thông báo không ở quán
+  const [modalWaitCheckLocation, setWaitCheckLocation] = useState(false);
 
   const handleTableSelect = (table) => {
     setSelectedTable(table);
     setModalVisible(false); 
   };
-  const [selectedMethod, setSelectedMethod] = useState<"table" | "delivery" | "card" | null>(null); // Thêm state để lưu phương thức thanh toán
-  const setPaymentMethod = useSetRecoilState(paymentMethodState); // Thêm state để lưu phương thức thanh toán
+  const [selectedMethod, setSelectedMethod] = useState<"table" | "delivery" | "card" | null>(null); 
+  const setPaymentMethod = useSetRecoilState(paymentMethodState); 
 
   const renderTableButtons = () => {
     const tables = [
@@ -46,8 +54,8 @@ export const CartItems: FC = () => {
               borderRadius: '5px',
               backgroundColor: selectedTable === table ? '#197df8' : 'white',
               color: selectedTable === table ? 'white' : 'black',
-              width: '50px', // Thêm width
-              height: '50px'  // Thêm height
+              width: '50px',
+              height: '50px' 
             }}
           >
             {table}
@@ -57,22 +65,53 @@ export const CartItems: FC = () => {
     );
   };
 
-  const handleMethodClick = (method: "table" | "delivery" | "card") => {
-    setSelectedMethod(method); 
-    setPaymentMethod(method);
+  const handleMethodClick = (method: "table" | "delivery") => {
+    setNewPaymentMethod(method);
+    setPaymentChangeModalVisible(true);
+  };
 
-    if (method === "table") { 
-      setShowDelivery(false); // Ẩn form giao hàng
-      setModalVisible(true);
-    } else if (method === "delivery") { 
-      setShowDelivery(true); // Hiện form giao hàng
-      setSelectedTable(null); // Reset lựa chọn bàn
-      setModalVisible(false); // Đóng modal chọn bàn
-    } else if (method === "card") {
-      
+  const confirmPaymentMethodChange = async () => {
+    setSelectedMethod(newPaymentMethod);
+    if (newPaymentMethod === "table") {
+      setShowDelivery(false);
+      setPaymentChangeModalVisible(false); // Đóng modal thông báo
+      setWaitCheckLocation(true);
+
+      // Gọi hàm getLocation
+      const accessToken = await getAccessToken({});
+      const { token } = await getLocation({});
+
+      const data = {
+        accessToken: accessToken,
+        token: token,
+        type: "location-test",
+      };
+
+      const response = await fetch("https://pro.n8n.vn/webhook/miniapp-lark-dakai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (result.test === "done") {
+        setModalVisible(true); // Mở modal chọn bàn
+        setWaitCheckLocation(false); 
+      } else if (result.test === "failed") {
+        setModalFailed(true); // Mở modal thông báo không ở quán
+        setWaitCheckLocation(false);
+        setPaymentMethod(null); // Reset phương thức thanh toán
+        setSelectedMethod(null); // Reset phương thức thanh toán đã chọn
+        resetPhoneNumberCard(null); 
+      }
+    } else if (newPaymentMethod === "delivery") {
+      setShowDelivery(true);
+      setSelectedTable(null);
+      resetPhoneNumberCard(null);
     }
-
-
+    setPaymentChangeModalVisible(false); // Đóng modal thông báo
   };
 
   return (
@@ -127,22 +166,20 @@ export const CartItems: FC = () => {
           Không có sản phẩm trong giỏ hàng
         </Text>
       )}
-       <Divider></Divider>
+       <Divider />
       <Box className="space-y-3">
       <Text.Header>Địa chỉ của DAKAI Cafe</Text.Header>
       <ListRenderer
-        items={[
-          {
-            left: <Icon icon="zi-home" className="my-auto"/>,
-            right: (
-              <Box flex>
-                <Text.Header className="flex-1 items-center font-medium text-sm text-primary">
-                  100 Đường Võ Chí Công, Phường Thạnh Mỹ Lợi, Thành phố Thủ Đức, HCMC
-                </Text.Header>
-              </Box>
-            ),
-          },
-        ]}
+        items={[{
+          left: <Icon icon="zi-home" className="my-auto"/>,
+          right: (
+            <Box flex>
+              <Text.Header className="flex-1 items-center font-medium text-sm text-primary">
+                100 Đường Võ Chí Công, Phường Thạnh Mỹ Lợi, Thành phố Thủ Đức, HCMC
+              </Text.Header>
+            </Box>
+          ),
+        }]}
         limit={4}
         renderLeft={(item) => item.left}
         renderRight={(item) => item.right}
@@ -154,13 +191,12 @@ export const CartItems: FC = () => {
       <ListRenderer
         items={[
           {
-            left: <Icon icon="zi-favorite-list" />,
-            right: (
-              <div onClick={() => handleMethodClick("table")}>
+          left: <Icon icon="zi-favorite-list" />,
+          right: (
+            <div onClick={() => handleMethodClick("table")}>
               <Box flex>
                 <Text.Header className="flex-1 items-center font-normal"
-                style={{ color: selectedMethod === "table" ? "#197df8" : "" }} // Đổi màu chữ khi chọn
-                >
+                style={{ color: selectedMethod === "table" ? "#197df8" : "" }}>
                   Thanh toán tại bàn
                 </Text.Header>
                 <Icon icon="zi-chevron-right" />
@@ -168,34 +204,41 @@ export const CartItems: FC = () => {
             </div>
             ),
           },
-          {
-            left: <Icon icon="zi-create-group-solid" />,
-            right: (
-              <div onClick={() => handleMethodClick("delivery")}>
+         {
+          left: <Icon icon="zi-create-group-solid" />,
+          right: (
+            <div onClick={() => handleMethodClick("delivery")}>
               <Box flex>
                 <Text.Header className="flex-1 items-center font-normal"
-                style={{ color: selectedMethod === "delivery" ? "#197df8" : "" }} // Đổi màu chữ khi chọn
-                >
+                style={{ color: selectedMethod === "delivery" ? "#197df8" : "" }}>
                   Giao hàng
                 </Text.Header>
                 <Icon icon="zi-chevron-right" />
               </Box>
-              </div>
+            </div>
             ),
           },
-          {
-            left: <Icon icon="zi-qrline" />,
-            right: (
-              <div onClick={() => handleMethodClick("card")}>
-              <Box flex>
-                <Text.Header className="flex-1 items-center font-normal"
-                style={{ color: selectedMethod === "card" ? "#197df8" : "" }} // Đổi màu chữ khi chọn
-                >
-                  Thẻ thành viên
-                </Text.Header>
-                <Icon icon="zi-chevron-right" />
-              </Box>
-              </div>
+        ]}
+        limit={4}
+        renderLeft={(item) => item.left}
+        renderRight={(item) => item.right}
+      />
+      <Text.Header>Sử dụng thẻ thành viên</Text.Header>
+      <ListRenderer
+        items={[{
+          left: <Icon icon="zi-qrline" className="top-2" />,
+          right: (
+            <div
+              onClick={() => {
+                if (selectedMethod !== "table") {
+                  setModalCard(true);
+                }
+              }}
+            >
+              <Suspense fallback={<RequestCardPickerPhone />}>
+                <PhoneCard disabled={selectedMethod !== "table"} />
+              </Suspense>
+            </div>
             ),
           },
         ]}
@@ -204,36 +247,76 @@ export const CartItems: FC = () => {
         renderRight={(item) => item.right}
       />
     </Box>
-    <br></br>
+    <Divider />
     {showDelivery && <DeliveryShip />}
     <Modal
         visible={modalVisible}
         title="Sơ đồ chọn bàn"
-        onClose={() => {
-          setModalVisible(false);
-        }}
-        zIndex={1200}
+        onClose={() => setModalVisible(false)}
+        className="p-4"
+        actions={[
+          { text: "Đóng", close: true },
+        ]}
+        description="Quý khách vui lòng chọn bàn và chờ trong ít phút, nhân viên sẽ phục vụ Quý khách ngay ạ!"
+      >
+        {renderTableButtons()}
+      </Modal>
+      <Modal
+        visible={paymentChangeModalVisible}
+        title="DAKAI Cafe thông báo!"
+        zIndex={1100}
         actions={[
           {
             text: "Thoát",
             close: true,
-            highLight: false,
-            danger: true
+            danger: true,
+            onClick: () => {
+              setPaymentChangeModalVisible(false);
+            },
+          },
+          {
+            text: "OK",
+            close: true,
+            highLight: true,
+            onClick: confirmPaymentMethodChange, 
           },
         ]}
-        description="Quý khách vui lòng chọn bàn và chờ trong ít phút, nhân viên sẽ phục vụ Quý khách ngay ạ!"
+        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729743187/Th%C3%AAm_ti%C3%AAu_%C4%91%E1%BB%81_3_otnq0q.png"
       >
-        <br></br>
-        {renderTableButtons()}
+      </Modal>
+      <Modal
+        visible={modalFailed}
+        title="DAKAI Cafe thông báo!!!"
+        zIndex={1100}
+        actions={[
+          {
+            text: "Đóng",
+            close: true,
+            onClick: () => {
+              setModalFailed(false);
+            },
+          },
+        ]}
+        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729767722/Th%C3%AAm_ti%C3%AAu_%C4%91%E1%BB%81_4_lq17t9.png"
+      >
+      </Modal>
+      <Modal
+        visible={modalWaitCheckLocation}
+        title="Đang kiểm tra kiểm tra vị trí......."
+        zIndex={1100}
+        className="p-4"
+        actions={[
+          {
+            text: "Đóng",
+            close: false, // Không cho phép đóng modal này
+          },
+        ]}
+        coverSrc="https://res.cloudinary.com/dqcrcdufy/image/upload/v1729767418/coffee_2_ccdho6.png"
+      >
       </Modal>
       {selectedTable && (
         <div>
           <p className="">Quý khách đã chọn bàn: <span style={{color:"#197df8", fontSize:"20px", fontWeight:"bold"}}>{selectedTable}</span> </p> 
-        </div>
-      )}
-      {selectedCard && (
-        <div>
-          <p style={{color:"#197df8", fontSize:"20px", fontWeight:"bold"}}>Đang kiểm tra thông tin....</p>
         </div>
       )}
     </Box>

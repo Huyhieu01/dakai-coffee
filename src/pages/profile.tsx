@@ -29,7 +29,7 @@ const Personal: FC = () => {
   return (
     <Box className="m-4">
       <ListRenderer
-        title="Cá nhân"
+        title="Người dùng"
         onClick={onClick}
         items={[
           {
@@ -104,10 +104,17 @@ const Other: FC = () => {
 const ProfilePage: FC = () => {
   return (
     <Page>
-      <Header showBackIcon={false} title="&nbsp;" />
+      <Header showBackIcon={true} title="Cá nhân" />
       <Subscription />
       <Personal />
+      <div className="text-center text-[#a7a7a7] p-2">
+        <p>Quý khách vui lòng cung cấp số điện thoại để kiểm tra tài khoản và lịch sử đơn hàng.</p>
+      </div>
       <Other />
+      <div className="text-center text-[#a7a7a7]">
+        <p>Một thương hiệu của GP Farm</p>
+        <p>Version 1.0.0</p>
+      </div>
     </Page>
   );
 };

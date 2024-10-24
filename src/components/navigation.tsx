@@ -4,15 +4,16 @@ import { useLocation, useNavigate } from "react-router";
 import { MenuItem } from "types/menu";
 import { BottomNavigation, Icon } from "zmp-ui";
 import { CartIcon } from "./cart-icon";
+import { openChat } from "zmp-sdk/apis";
 
 const tabs: Record<string, MenuItem> = {
   "/": {
     label: "Trang chủ",
     icon: <Icon icon="zi-home" />,
   },
-  "/notification": {
-    label: "Thông báo",
-    icon: <Icon icon="zi-notif" />,
+  "/chat": {
+    label: "Liên hệ",
+    icon: <Icon icon="zi-chat" />,
   },
   "/cart": {
     label: "Giỏ hàng",
