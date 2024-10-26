@@ -10,6 +10,11 @@ export const phoneNumberCard = atom<string | null>({
   default: null,
 });
 
+export const phoneCard = atom<string | null>({
+  key: "phoneCard",
+  default: null,
+});
+
 export const PhoneCard: FC <{ disabled?: boolean; selectedCardMethod: string }> = ({ disabled = false, selectedCardMethod, }) => {
   const user = useRecoilValue(userState);
   const [phoneNumber, setPhoneNumber] = useRecoilState(phoneNumberCard);
@@ -19,7 +24,7 @@ export const PhoneCard: FC <{ disabled?: boolean; selectedCardMethod: string }> 
   const [title, setTitle] = useState("Chưa có số");
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const [cardLimit, setCardLimit] = useState<string | null>(null);
-  const [cardPhone, setCardPhone] = useState<string | null>(null);
+  const [cardPhone, setCardPhone] = useRecoilState(phoneCard);
    
   useEffect(() => {
     if (selectedCardMethod !== "table") {

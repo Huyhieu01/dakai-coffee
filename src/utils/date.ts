@@ -28,3 +28,4 @@ export function displayDate(date: Date, hint?: boolean) {
   }
   return `${day}/${month}/${year}`;
 }
+

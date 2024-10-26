@@ -12,7 +12,7 @@ import {
 } from "state";
 import { getAccessToken, getLocation } from "zmp-sdk/apis";
 
-const locationAtom = atom<string | null>({
+export const locationAtom = atom<string | null>({
   key: "locationAtom",
   default: null,
 });

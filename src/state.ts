@@ -205,10 +205,17 @@ export const selectedStoreState = selector({
   },
 });
 
-export const selectedDeliveryTimeState = atom({
-  key: "selectedDeliveryTime",
-  default: +new Date(),
-});
+// export const selectedDeliveryTimeState = atom<string>({
+//   key: "selectedDeliveryTime",
+//   default: new Date().toLocaleString('en-GB', { // Định dạng ngày theo kiểu dd/mm/yyyy
+//     day: '2-digit',
+//     month: '2-digit',
+//     year: 'numeric',
+//     hour: '2-digit',
+//     minute: '2-digit',
+//     hour12: false // 24 giờ
+//   }).replace(',', ''), // Loại bỏ dấu phẩy
+// });
 
 export const requestLocationTriesState = atom({
   key: "requestLocationTries",
@@ -275,7 +282,7 @@ export const validDeliveryInfoState = atom({
   default: false, // Ban đầu, thông tin chưa hợp lệ
 });
 
-const phoneNumberState = atom<string | null>({
+const phoneNumberCard = atom<string | null>({
   key: "phoneNumberState",
   default: null,
 });

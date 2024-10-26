@@ -1,25 +1,44 @@
 import { ElasticTextarea } from "components/elastic-textarea";
 import { ListRenderer } from "components/list-renderer";
 import React, { FC, Suspense, useEffect } from "react";
-import { Box, Icon, Input, Text } from "zmp-ui";
+import { Box, Icon, Text } from "zmp-ui";
 import { PhonePicker, RequestPersonPickerPhone } from "./phone-picker";
 import { RequestStorePickerLocation, StorePicker } from "./location-picker";
 import { TimePicker } from "./time-picker";
-import { useRecoilState } from "recoil";
-import { chiTietDiaChi, orderNoteState, requestPhoneTriesState, selectedDeliveryTimeState, validDeliveryInfoState } from "state";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  chiTietDiaChi,
+  orderNoteState,
+  requestPhoneTriesState,
+  validDeliveryInfoState,
+} from "state";
+
+import { selecteTimeDate } from "./time-picker"
+
+
 
 export const DeliveryShip: FC = () => {
   const [note, setNote] = useRecoilState(orderNoteState);
   const [phoneNumber, setPhoneNumber] = useRecoilState(requestPhoneTriesState);
   const [addlocation, setAddLocation] = useRecoilState(chiTietDiaChi);
   const [validDeliveryInfo, setValidDeliveryInfo] = useRecoilState(validDeliveryInfoState);
-  
+
   const isPhoneValid = !!phoneNumber;
   const isLocationValid = !!addlocation;
-  const isTimeValid = !!selectedDeliveryTimeState;
+  const isTimeValid = !!selecteTimeDate;
+
   useEffect(() => {
     setValidDeliveryInfo(isPhoneValid && isLocationValid && isTimeValid);
   }, [isPhoneValid, isLocationValid, isTimeValid]);
+
+  // Hàm để lấy thông tin giao hàng
+  const getDeliveryInfo = () => ({
+    phoneNumber,
+    location: addlocation,
+    deliveryTime: selecteTimeDate,
+    note,
+  });
+
   return (
     <Box className="space-y-3 px-4">
       <Text.Header>Hình thức nhận hàng</Text.Header>

@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-import { atom, useRecoilState, useRecoilValue } from "recoil";
+import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { getAccessToken, getPhoneNumber } from "zmp-sdk/apis";
 import { chiTietDiaChi, requestPhoneTriesState, userState } from "state";
 import { ListItem } from "components/list-item";
 
-const phoneNumberAtom = atom<string | null>({
+export const phoneNumberAtom = atom<string | null>({
   key: "phoneNumberAtom",
   default: null,
 });
@@ -119,10 +119,11 @@ export const PhonePicker: FC = () => {
   );
 };
 
-export const RequestPersonPickerPhone: FC<any> = ({ onClick }) => {
+export const RequestPersonPickerPhone: FC = () => {
+  const retry = useSetRecoilState(requestPhoneTriesState);
   return (
     <ListItem
-      onClick={onClick}
+      onClick={() => retry((r) => r + 1)}
       title="Chọn người nhận" subtitle="Yêu cầu truy cập số điện thoại"
     />
   );

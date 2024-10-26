@@ -13,12 +13,17 @@ import { PhoneCard, RequestCardPickerPhone } from "./card-picker";
 import { phoneNumberCard } from "./card-picker";
 import { getAccessToken, getLocation } from "zmp-sdk/apis";
 
+export const selectedTableState = atom<string | null>({
+  key: "selectedTableState",
+  default: null,
+});
+
 export const CartItems: FC = () => {
   const cart = useRecoilValue(cartState);
   const [editingItem, setEditingItem] = useState<CartItem | undefined>();
   const [showDelivery, setShowDelivery] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedTable, setSelectedTable] = useState(null);
+  const [selectedTable, setSelectedTable] = useRecoilState(selectedTableState);
   const [modalCard, setModalCard] = useState(false);
   const resetPhoneNumberCard = useSetRecoilState(phoneNumberCard);
   const [paymentChangeModalVisible, setPaymentChangeModalVisible] = useState(false);

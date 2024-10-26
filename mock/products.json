@@ -6,7 +6,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/rwvoaq4g6tqfi0sufvya",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/qpk09xznkggsbpei9ate",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/hju6ogdkpgmj0eah1coi",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/xxtxvwkpir2q7eslrupj",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/zdziuqqwv3znpvbkx4uu",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ivqemt7t7fljbpbmmyrm",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee"],
-    "variantId": ["size", "typping"]
+    "variantId": ["typping"]
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/eu0np9bwjuh7o9zyzhbe",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["tea"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/dqzm4aq4aee48okmc5om",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["tea"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 9,
@@ -82,7 +82,7 @@
     },
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee", "milktea", "drinks"],
-    "variantId": ["size", "topping"]
+    "variantId": ["topping"]
   },
   {
     "id": 10,
@@ -95,7 +95,7 @@
     },
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["coffee", "drinks"],
-    "variantId": ["size", "topping"]
+    "variantId": ["topping"]
   },
   {
     "id": 11,
@@ -104,7 +104,7 @@
     "image": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/product-rect-3.webp",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["milktea"],
-    "variantId": ["size", "topping"],
+    "variantId": ["topping"],
     "sale": {
       "type": "percent",
       "percent": 0.5
@@ -117,7 +117,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/vrfrhlr0bpuudgd1vsfs",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["tea"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 13,
@@ -126,7 +126,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/uonq7bjl8vrivr8im6yg",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["tea"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 14,
@@ -135,7 +135,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/muhqwo337gmn1c9gvcno",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["tea"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 15,
@@ -144,7 +144,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/priex4nysh4sx2ebwg0e",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["hottea"],
-    "variantId": ["size"]
+    "variantId": ["typping"]
   },
   {
     "id": 16,
@@ -153,7 +153,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/mgrufkqtaafnutbgjpkq",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["hottea"],
-    "variantId": ["size"]
+    "variantId": ["typping"]
   },
   {
     "id": 17,
@@ -162,7 +162,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/vn7fhnsnxvycxpvenqib",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["hottea"],
-    "variantId": ["size"]
+    "variantId": ["typping"]
   },
   {
     "id": 18,
@@ -171,7 +171,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/szfkslgyxijr6alismct",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["hottea"],
-    "variantId": ["size"]
+    "variantId": ["typping"]
   },
   {
     "id": 19,
@@ -180,7 +180,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/tgqt8qzwpcpcnmivpphi",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["yaourt"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 20,
@@ -189,7 +189,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/jr7a6qjzzq9p8ahgrt5d",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["yaourt"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 21,
@@ -198,7 +198,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/waopnvd9eky9gvogvaw1",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["yaourt"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 22,
@@ -207,7 +207,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/eeghlqndcbk5xxj8p6rw",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["yaourt"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 23,
@@ -216,7 +216,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/udcp78ccxi7tzmn8ujcs",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["yaourt"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 24,
@@ -225,7 +225,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bektkzxyf9gelzv2tmru",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["juice"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 25,
@@ -234,7 +234,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/afeobiyytrreeuspmool",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["juice"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 26,
@@ -243,7 +243,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/c5lvpmsqvvffzlvotbpc",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["juice"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 27,
@@ -252,7 +252,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/bhhqsgfblqezlkkhvww1",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["juice"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 28,
@@ -261,7 +261,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/prghsih0saax1yxrmd1b",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["juice"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 29,
@@ -270,7 +270,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/pdxrlia1ffkaigjuzxlu",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["soda"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 30,
@@ -279,7 +279,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/t79z6ko7iq1fbwevk53z",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["soda"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 31,
@@ -288,7 +288,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/kjr3dkuagw50rgpv6kko",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["soda"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 32,
@@ -297,7 +297,7 @@
     "image": "https://res.cloudinary.com/dqcrcdufy/image/upload/f_auto,q_auto/v1/DAKAI%20Cafe/ouquuelec4hlf64goi2e",
     "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
     "categoryId": ["soda"],
-    "variantId": ["size"]
+    "variantId": []
   },
   {
     "id": 33,
