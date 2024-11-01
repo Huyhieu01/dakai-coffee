@@ -3,15 +3,15 @@
     "id": "typping",
     "label": "Loại",
     "type": "single",
-    "default": "",
+    "default": "cold",
     "options": [
       {
-        "id": "hot",
-        "label": "Nóng"
+        "id": "Đá",
+        "label": "Đá"
       },
       {
-        "id": "cold",
-        "label": "Đá"
+        "id": "Nóng",
+        "label": "Nóng"
       }
     ]
   },
@@ -19,11 +19,51 @@
     "id": "typping-cream",
     "label":"Số lượng",
     "type": "single",
-    "default": "2v",
+    "default": "2 viên",
     "options": [
       {
-        "id": "2v",
+        "id": "2 viên",
         "label": "2 viên"
+      }
+    ]
+  },
+  {
+    "id": "water",
+    "label":"Loại",
+    "type": "single",
+    "default": "small",
+    "options": [
+      {
+        "id": "Nhỏ",
+        "label": "Nhỏ"
+      },
+      {
+        "id": "Lớn",
+        "label": "Lớn"
+      }
+    ]
+  },
+  {
+    "id": "topping",
+    "label": "Đồ ăn thêm",
+    "type": "multiple",
+    "default": [],
+    "options": [
+      {
+        "id": "Chả",
+        "label": "Chả",
+        "priceChange": {
+          "type": "fixed",
+          "amount": 7000
+        }
+      },
+      {
+        "id": "Trứng",
+        "label": "Trứng",
+        "priceChange": {
+          "type": "fixed",
+          "amount": 7000
+        }
       }
     ]
   }
