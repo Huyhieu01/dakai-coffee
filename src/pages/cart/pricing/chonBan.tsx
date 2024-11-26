@@ -7,7 +7,7 @@ export const ChonBan = () => {
 
   const handleTableSelect = (table) => {
     setSelectedTable(table);
-    setModalVisible(false); 
+    setModalVisible(false);
   };
 
   const renderTableButtons = () => {
@@ -21,18 +21,18 @@ export const ChonBan = () => {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {tables.map((table) => (
-          <button 
-            key={table} 
+          <button
+            key={table}
             onClick={() => handleTableSelect(table)}
-            style={{ 
-              margin: '5px', 
-              padding: '10px', 
-              border: '1px solid #ccc', 
+            style={{
+              margin: '5px',
+              padding: '10px',
+              border: '1px solid #ccc',
               borderRadius: '5px',
               backgroundColor: selectedTable === table ? '#197df8' : 'white',
               color: selectedTable === table ? 'white' : 'black',
-              width: '50px', 
-              height: '50px' 
+              width: '50px',
+              height: '50px'
             }}
           >
             {table}

@@ -1,4 +1,4 @@
-import { atom, selector, selectorFamily, useRecoilValue } from "recoil";
+import { atom, selector, selectorFamily, useRecoilValue, useSetRecoilState } from "recoil";
 import { authorize, getAccessToken, getLocation, getPhoneNumber, getSetting, getUserInfo } from "zmp-sdk";
 import logo from "static/logo-dakai-cafe.png";
 import { Category } from "types/category";
@@ -10,7 +10,7 @@ import { Store } from "types/delivery";
 import { calcFinalPrice } from "utils/product";
 import { wait } from "utils/async";
 import categories from "../mock/categories.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const authorizedState = selector({
   key: "authorized",
@@ -22,15 +22,45 @@ export const authorizedState = selector({
   },
 });
 
-export const userState = selector({
+// Khởi tạo atom userState để lưu thông tin người dùng
+export const userState = atom({
   key: "user",
-  get: async ({ get }) => {
-    get(authorizedState);
-    const { userInfo } = await getUserInfo({ avatarType: "large" });
-    console.log(userInfo);
-    return userInfo;
+  default: {
+    id: "",
+    avatar: "",
+    name: "Bạn mới!",
   },
 });
+
+// Hàm lấy thông tin người dùng và cập nhật vào userState
+export const updateUserInfo = async (setUserState) => {
+  try {
+    const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+    setUserState((prevState) => ({
+      ...prevState,
+      ...userInfo,
+    }));
+  } catch (error) {
+    console.error("Không thể lấy thông tin người dùng:", error);
+  }
+};
+
+// Component để lắng nghe và cập nhật userState khi có thao tác
+export function UserInfoUpdater() {
+  const setUserState = useSetRecoilState(userState);
+
+  useEffect(() => {
+    // Gọi updateUserInfo khi component được gắn vào (hoặc có sự kiện)
+    const handleUserInteraction = async () => {
+      await updateUserInfo(setUserState);
+    };
+
+    // Bạn có thể gọi `handleUserInteraction` từ sự kiện hoặc điều kiện nào đó
+    handleUserInteraction();
+  }, [setUserState]);
+
+  return null; // Thành phần này chỉ để cập nhật trạng thái và không hiển thị
+}
 
 export const categoriesState = selector<Category[]>({
   key: "categories",

@@ -6,9 +6,7 @@ import {
   totalQuantityState,
   chiTietDiaChi,
   orderNoteState,
-  requestPhoneTriesState,
   validDeliveryInfoState,
-  requestLocationTriesState,
   cartState,
   userState,
 } from "state";
@@ -18,11 +16,26 @@ import { selectedTableState } from "./cart-items";
 import { phoneNumberAtom } from "./phone-picker";
 import { locationAtom } from "./location-picker";
 import {  selecteTimeDate } from "./time-picker"
-import { userInfo } from "os";
+import pay from "utils/product";
+
+// Định nghĩa kiểu dữ liệu cho OrderData  
+interface OrderData {  
+  method: string;  
+  table?: string;  
+  memberPhoneNumber?: string;  
+  items: any; // Thay đổi 'any' về kiểu dữ liệu thực tế của items  
+  totalPrice: number;  
+  phone?: string | null;  
+  location?: string | null;  
+  addlocation?: string;  
+  time?: string | null;  
+  note?: string;  
+  user?: string;  
+  type?: string;  
+}  
 
 export const CartPreview: FC = () => {
   const user = useRecoilValue(userState);
-  console.log(user)
   const quantity = useRecoilValue(totalQuantityState);
   const totalPrice = useRecoilValue(totalPriceState);
 
@@ -48,7 +61,7 @@ export const CartPreview: FC = () => {
     const isLocationValid = validDeliveryInfoState;
 
     if (isLocationValid) {
-      let orderData = {};
+      let orderData: OrderData;
 
       // Xác định phương thức thanh toán và xây dựng orderData
       if (selectedTable && memberPhoneNumber) {
@@ -71,10 +84,10 @@ export const CartPreview: FC = () => {
       } else {
         orderData = {
           method: "delivery",
-          phone,
-          location,
+          phone: phone,
+          location: location,
           addlocation,
-          time,
+          time: time,
           note,
           items: cart, // Sản phẩm trong giỏ hàng
           totalPrice,
@@ -98,11 +111,18 @@ export const CartPreview: FC = () => {
         // Đóng modal kiểm tra vị trí
         setModalWaitCheckLocation(false);
 
-        if (result.status === "done") {
-          setModalDone(true);
-        } else {
-          setModalFailed(true);
-        }
+        if (result.status === "done") {  
+          setModalDone(true);  
+          // Kiểm tra phương thức thanh toán  
+          if (orderData.method === "delivery") {  
+            setTimeout(() => {  
+              setModalDone(false); // Đóng modal thành công sau 2 giây  
+              pay(totalPrice); // Gọi hàm pay sau có modal  
+            }, 2000);  
+          }  
+        } else {  
+          setModalFailed(true);  
+        }  
       } catch (error) {
         console.error("Error:", error);
         setModalFailed(true);
